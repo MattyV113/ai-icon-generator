@@ -13,7 +13,9 @@ const config = {
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: "./tsconfig.json",
+    project: "tsconfig.json",
+    tsconfigRootDir: "ai-icon-generator",
+    sourceType: "module",
   },
   plugins: ["@typescript-eslint"],
   extends: ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
