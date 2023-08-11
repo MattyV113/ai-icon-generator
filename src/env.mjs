@@ -21,6 +21,8 @@ const server = z.object({
   // Add `.min(1) on ID and SECRET if you want to make sure they're not empty
   GOOGLE_CLIENT_ID: z.string(),
   GOOGLE_CLIENT_SECRET_ID: z.string(),
+  DALLE_API_KEY: z.string(),
+  MOCK_DALLE: z.string(),
 });
 
 /**
@@ -44,7 +46,8 @@ const processEnv = {
   NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET_ID: process.env.GOOGLE_CLIENT_SECRET_ID,
-  // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+  DALLE_API_KEY: process.env.DALLE_API_KEY,
+  MOCK_DALLE: process.env.MOCK_DALLE,
 };
 
 // Don't touch the part below
