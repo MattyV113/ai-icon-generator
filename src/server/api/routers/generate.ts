@@ -78,9 +78,11 @@ export const generateRouter = createTRPCRouter({
 
       const url = await generateIcon(input.prompt);
 
+      const BUCKET_NAME = "icons-with-ai";
+
       await s3
         .putObject({
-          Bucket: "icons-with-ai",
+          Bucket: BUCKET_NAME,
           Body: Buffer.from(url!, "base64"),
           Key: icon.id,
           ContentEncoding: "base64",
@@ -89,7 +91,7 @@ export const generateRouter = createTRPCRouter({
         .promise();
 
       return {
-        imageUrl: url,
+        imageUrl: `https://${BUCKET_NAME}.s3.amazonaws.com/${icon.id}`,
       };
     }),
 });
